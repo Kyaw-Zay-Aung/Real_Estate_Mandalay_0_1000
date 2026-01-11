@@ -1,82 +1,72 @@
 🏢 Mandalay Real Estate Scraper
+A powerful Python-based web scraper designed to collect property listings from iMyanmarHouse. It automates the data collection process for the Mandalay Region and exports the results into clean, analysis-ready Excel files.
 
-A Python-based web scraper that collects property listings for sale in the Mandalay Region from iMyanmarHouse and saves the data into an Excel file for easy analysis.
+Note: This project was created for educational purposes, perfect for beginners interested in web scraping and data analysis.
 
-This project was created for learning and educational purposes, especially for beginners interested in web scraping and data analysis.
+📌 Project Overview
+The scraper systematically visits listing pages to gather information on properties priced between 0 and 1,000 Lakhs MMK.
 
-📌 What This Scraper Does
+✨ Key Features
+🔄 Automatic Pagination: Automatically detects the "Next" button to crawl through all available search results.
 
-The scraper automatically visits real estate listing pages and collects useful information about properties priced between 0 and 1,000,000,000 MMK.
+🎯 Targeted Extraction: Precisely scrapes:
 
-✨ Features
+Property Title – The main heading of the listing.
 
-🔄 Automatic Pagination
-Moves through multiple pages by detecting and clicking the “Next” page logic.
+Location – Township/Area details (via map-marker icons).
 
-🎯 Targeted Data Extraction
-Collects important property details:
+Property Type – Categories like Apartment or Land (via building icons).
 
-Property Title – Main heading of the listing
+📊 Excel Export: Generates timestamped .xlsx files automatically using Pandas.
 
-Location – Township or area (from map-marker icons)
+🛠️ Tech Stack & Prerequisites
+Language: Python 3.x
 
-Property Type – Example: Apartment, Land (from building icons)
+Libraries: requests, BeautifulSoup4, Pandas, openpyxl, html5lib
 
-📊 Excel Export
-Saves all scraped data into a timestamped .xlsx file, making it easy to open in Excel.
-
-🛠️ Prerequisites
-
-Before running the project, make sure you have:
-
-Python 3.x installed
-
-Virtual Environment (recommended, but optional)
-
-📥 Installation
+📥 Installation & Setup
 1️⃣ Clone the Repository
+Bash
+
 git clone https://github.com/your-username/mandalay-real-estate-scraper.git
 cd mandalay-real-estate-scraper
+2️⃣ Environment Setup
+It is highly recommended to use a Virtual Environment:
 
-2️⃣ Create & Activate a Virtual Environment
+PowerShell
+
 python -m venv myvenv
-
-# On Windows
+# Activate on Windows:
 .\myvenv\Scripts\activate
+3️⃣ Install Dependencies
+PowerShell
 
-3️⃣ Install Required Libraries
 pip install requests beautifulsoup4 pandas openpyxl html5lib
-
 ▶️ How to Use
+Run the script directly from your terminal:
 
-Run the script from your terminal:
+PowerShell
 
 python Mandalay_Real_Estate.py
+📋 What to Expect:
+The terminal will display real-time progress for each page being scraped.
 
-What Happens Next?
-
-The script shows real-time progress (which page is being scraped)
-
-When finished, it generates an Excel file like:
+Once complete, a new file will appear in your folder:
 
 Properties_extracted_YYYY-MM-DD_HH-MM-SS.xlsx
 
-
-📁 The file will appear in the project folder
-
 📁 Project Structure
+Plaintext
+
 mandalay-real-estate-scraper/
-│
-├── Mandalay_Real_Estate.py   # Main scraping script
-├── myvenv/                   # Virtual environment (local)
-├── README.md                 # Project documentation
-
+├── Mandalay_Real_Estate.py   # Core logic for scraping
+├── myvenv/                   # Local environment (do not upload)
+└── README.md                 # Project documentation
 ⚠️ Disclaimer
+This tool is for educational purposes only.
 
-This project is created for educational purposes only.
+Please respect iMyanmarHouse’s Terms of Service.
 
-Please respect iMyanmarHouse’s Terms of Service
+Always check the website’s robots.txt.
 
-Check and follow the website’s robots.txt
-
-Do not use this scraper for commercial or abusive purposes
+Avoid commercial or abusive use of this scraper.
