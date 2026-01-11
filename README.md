@@ -1,4 +1,4 @@
-🏢 Mandalay Real Estate Scraper
+🏢 #Mandalay Real Estate Scraper
 A powerful Python-based web scraper designed to collect property listings from iMyanmarHouse. It automates the data collection process for the Mandalay Region and exports the results into clean, analysis-ready Excel files.
 
 Note: This project was created for educational purposes, perfect for beginners interested in web scraping and data analysis.
@@ -62,6 +62,8 @@ mandalay-real-estate-scraper/
 ├── Mandalay_Real_Estate.py   # Core logic for scraping
 ├── myvenv/                   # Local environment (do not upload)
 └── README.md                 # Project documentation
+
+
 ⚠️ Disclaimer
 This tool is for educational purposes only.
 
