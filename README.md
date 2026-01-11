@@ -1,74 +1,104 @@
-🏢 #Mandalay Real Estate Scraper
-A powerful Python-based web scraper designed to collect property listings from iMyanmarHouse. It automates the data collection process for the Mandalay Region and exports the results into clean, analysis-ready Excel files.
+<div align="center">
 
-Note: This project was created for educational purposes, perfect for beginners interested in web scraping and data analysis.
+# 🏢 Mandalay Real Estate Scraper  
+🚀 *A beginner-friendly Python web scraper for real estate data analysis*
 
-📌 Project Overview
-The scraper systematically visits listing pages to gather information on properties priced between 0 and 1,000 Lakhs MMK.
+</div>
 
-✨ Key Features
-🔄 Automatic Pagination: Automatically detects the "Next" button to crawl through all available search results.
+---
 
-🎯 Targeted Extraction: Precisely scrapes:
+## 📖 About the Project
 
-Property Title – The main heading of the listing.
+**Mandalay Real Estate Scraper** is a **Python-based web scraping tool** that automatically collects **property listings for sale in the Mandalay Region** from **iMyanmarHouse** and exports the data into a structured **Excel file**.
 
-Location – Township/Area details (via map-marker icons).
+> 🎓 This project was built for **learning and educational purposes**, especially for beginners interested in **web scraping**, **Python**, and **data analysis**.
 
-Property Type – Categories like Apartment or Land (via building icons).
+---
 
-📊 Excel Export: Generates timestamped .xlsx files automatically using Pandas.
+## 📌 What This Scraper Does
 
-🛠️ Tech Stack & Prerequisites
-Language: Python 3.x
+The scraper automatically navigates through property listing pages and collects important information for properties priced between:
 
-Libraries: requests, BeautifulSoup4, Pandas, openpyxl, html5lib
+💰 **0 – 1,000,000,000 MMK (Kyats)**
 
-📥 Installation & Setup
-1️⃣ Clone the Repository
-Bash
+---
 
+## ✨ Key Features
+
+### 🔄 Automatic Pagination
+- Automatically detects and navigates through multiple pages using the **"Next" button** logic.
+
+### 🎯 Targeted Data Extraction
+The scraper collects the following details:
+- 🏷️ **Property Title** – Main heading of the listing  
+- 📍 **Location** – Township or area (extracted from map-marker icons)  
+- 🏢 **Property Type** – Categories such as Apartment, Land, etc. (extracted from building icons)
+
+### 📊 Excel Export
+- Saves all collected data into a **timestamped `.xlsx` file**
+- Easy to open and analyze using **Excel or Google Sheets**
+
+---
+
+## 🛠️ Tech Stack & Requirements
+
+- **Language:** Python 3.x  
+- **Libraries:**  
+  - `requests`  
+  - `beautifulsoup4`  
+  - `pandas`  
+  - `openpyxl`  
+  - `html5lib`
+
+> 💡 Using a **virtual environment** is recommended but optional.
+
+---
+
+## 📥 Installation & Setup
+
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/your-username/mandalay-real-estate-scraper.git
 cd mandalay-real-estate-scraper
-2️⃣ Environment Setup
-It is highly recommended to use a Virtual Environment:
-
-PowerShell
-
+2️⃣ Create & Activate a Virtual Environment (Recommended)
+bash
+Copy code
 python -m venv myvenv
-# Activate on Windows:
+
+# Windows
 .\myvenv\Scripts\activate
 3️⃣ Install Dependencies
-PowerShell
-
+bash
+Copy code
 pip install requests beautifulsoup4 pandas openpyxl html5lib
 ▶️ How to Use
-Run the script directly from your terminal:
+Run the scraper from your terminal:
 
-PowerShell
-
+bash
+Copy code
 python Mandalay_Real_Estate.py
-📋 What to Expect:
-The terminal will display real-time progress for each page being scraped.
+📋 What to Expect
+Real-time progress will be displayed in the terminal
 
-Once complete, a new file will appear in your folder:
+After completion, an Excel file will be generated:
 
+text
+Copy code
 Properties_extracted_YYYY-MM-DD_HH-MM-SS.xlsx
+📁 The file will be saved in the project directory.
 
 📁 Project Structure
-Plaintext
-
+text
+Copy code
 mandalay-real-estate-scraper/
-├── Mandalay_Real_Estate.py   # Core logic for scraping
-├── myvenv/                   # Local environment (do not upload)
+├── Mandalay_Real_Estate.py   # Main scraping script
+├── myvenv/                   # Virtual environment (do not upload)
 └── README.md                 # Project documentation
-
-
 ⚠️ Disclaimer
-This tool is for educational purposes only.
+This project is intended for educational purposes only.
 
-Please respect iMyanmarHouse’s Terms of Service.
+Please respect iMyanmarHouse’s Terms of Service
 
-Always check the website’s robots.txt.
+Always check and follow the website’s robots.txt
 
-Avoid commercial or abusive use of this scraper.
+Do not use this scraper for commercial or abusive purposes
