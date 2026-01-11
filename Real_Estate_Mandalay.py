@@ -24,79 +24,83 @@ def get_details(box):
 
     return loc, prop 
 
-#This is the common url for all pages
-base_url = "https://www.imyanmarhouse.com/search/for-sale/mandalay-region/all-township/price-0-1000-lakh"
-current_page = 1
-count = 0
+
+
 
 
 titles_list = []
 locations_list = []
 property_types_list = []
 
+def main():
+#This is the common url for all pages
+    base_url = "https://www.imyanmarhouse.com/search/for-sale/mandalay-region/all-township/price-0-1000-lakh"
+    current_page = 1
+    count = 0
 
-while True:
-    target_url = f"{base_url}?page={current_page}"
-    print(f"\n[We are scraping {current_page}...")
-    
-    #Current Page
-    data = requests.get(target_url, headers=headers)
-    bsO4 = BeautifulSoup(data.text, 'html5lib')
-
-    #Extracting the info of each peroperty that lies in each box for each page.
-    containers = bsO4.find_all('div', class_ = "col-sm-7")
-
-    #loop will stop if there is no list
-    if not containers:
-        print('We have scrpaed all data')
-        break
-
-    for container in containers:
-        count += 1
+    while True:
+        target_url = f"{base_url}?page={current_page}"
+        print(f"\n[We are scraping {current_page}...")
         
-        #Using Title Function
-        property_title = get_title(container)
+        #Current Page
+        data = requests.get(target_url, headers=headers)
+        bsO4 = BeautifulSoup(data.text, 'html5lib')
+
+        #Extracting the info of each peroperty that lies in each box for each page.
+        containers = bsO4.find_all('div', class_ = "col-sm-7")
+
+        #loop will stop if there is no list
+        if not containers:
+            print('We have scrpaed all data')
+            break
+
+        for container in containers:
+            count += 1
+            
+            #Using Title Function
+            property_title = get_title(container)
+            
+            #Using Location and property_type Functions
+            location, property_type = get_details(container)
+            
+            
+            #Putting Results into Lists
+            titles_list.append(property_title)
+            locations_list.append(location)
+            property_types_list.append(property_type)
+
+            #print(f"{count:<4} | {property_title}")
+            #print(f"{' ': <4} | {location}")
+            #print(f"{' ':<4} | {property_type}")
+            #print("-" * 60)
+
+        next_button = bsO4.find('a', string = 'Next »')
+
+        if next_button:
+            current_page += 1
+            time.sleep(0.5)
+
+        else:
+            print("\n This is the last page")
+            break
         
-        #Using Location and property_type Functions
-        location, property_type = get_details(container)
+    data_dic = {
+        'Title' : titles_list,
+        'Location' : locations_list,
+        'Property_types': property_types_list
+        }
+    df = pd.DataFrame(data_dic)
+    time_str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    filename = f'Properties_extracted_{time_str}.xlsx'
+    df.to_excel(filename, index=False)
+
         
-        
-        #Putting Results into Lists
-        titles_list.append(property_title)
-        locations_list.append(location)
-        property_types_list.append(property_type)
+            
 
-        #print(f"{count:<4} | {property_title}")
-        #print(f"{' ': <4} | {location}")
-        #print(f"{' ':<4} | {property_type}")
-        #print("-" * 60)
-
-    next_button = bsO4.find('a', string = 'Next »')
-
-    if next_button:
-        current_page += 1
-        time.sleep(0.5)
-
-    else:
-        print("\n This is the last page")
-        break
-    
-data_dic = {
-    'Title' : titles_list,
-    'Location' : locations_list,
-    'Property_types': property_types_list
-    }
-df = pd.DataFrame(data_dic)
-time_str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-filename = f'Properties_extracted_{time_str}.xlsx'
-df.to_excel(filename, index=False)
-
-    
-        
-
-print(f"\n We found total {count} properties")
-print(f"Data saved to {filename}")
+    print(f"\n We found total {count} properties")
+    print(f"Data saved to {filename}")
               
-
+if __name__ == "__main__":
+    main()
 
 
